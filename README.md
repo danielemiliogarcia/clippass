@@ -4,7 +4,7 @@ Chrome extension to receive gpg ecrypted pass trough the clipboard...
 
 -------------------------------
 
-## Instaall
+## Install
 
 * Save extension_decrypt_password.sh in some path, for example:
         /home/emi/bin/extension_decrypt_password.sh
