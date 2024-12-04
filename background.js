@@ -1,7 +1,7 @@
 chrome.action.onClicked.addListener(async (tab) => {
 
     try {
-        const port = chrome.runtime.connectNative("com.example.password");
+        const port = chrome.runtime.connectNative("com.clippass.host");
         port.onMessage.addListener((message) => {
             console.log(message);
             if (message.password) {

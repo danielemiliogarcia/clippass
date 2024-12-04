@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "Clippass",
     "version": "1.0",
-    "description": "Securely decrypt passwords from the clipboard and input them into focused fields.",
+    "description": "Securely decrypt passwords from the clipboard and input them into the focused field.",
     "permissions": ["nativeMessaging", "activeTab", "scripting"],
     "host_permissions": ["<all_urls>"],
     "action": {
@@ -11,7 +11,8 @@
             "16": "icon.png",
             "48": "icon.png",
             "128": "icon.png"
-        }
+        },
+        "default_popup": "settings.html"
     },
     "background": {
         "service_worker": "background.js"

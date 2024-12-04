@@ -1,6 +1,6 @@
 #!/bin/bash
 
-exec 2>>/tmp/native_host_debug.log  # Log errors to a file for debugging
+# exec 2>>/tmp/clippass_native_host_debug.log  # Log errors to a file for debugging
 set -x                             # Print each command before executing it
 
 # Get the password (decrypt from clipboard using gpg)
