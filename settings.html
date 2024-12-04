@@ -42,10 +42,16 @@
 
   <div id="explanation">
     <p>
+      Source code available here: <a href="https://github.com/danielemiliogarcia/clippass">https://github.com/danielemiliogarcia/clippass</a>
+    </p>
+    <p>
       Clippass is a Chrome extension designed to securely manage and decrypt passwords that have been encrypted using a PGP key.
       The extension integrates with your operating system to perform the decryption process because the PGP key and related operations
       are managed by your system and not the browser.
     </p>
+    <p>
+      The main idea is to use this extension with this password manager <a href="https://www.passwordstore.org/">https://www.passwordstore.org/</a> using the -e feature that I added.
+      See <a href="https://salsa.debian.org/danielemiliogarcia/password-store/-/merge_requests/1">This merge request</a></p>
     <p>
       To enable this functionality, the extension requires a native system host that can securely interact with the clipboard and
       decrypt the encrypted password. This native host facilitates communication between the browser and the system-level script
