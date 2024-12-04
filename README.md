@@ -1,6 +1,6 @@
 # CLIPPASS
 
-Chrome extension to receive gpg ecrypted pass trough the clipboard... (avoiding clipboard sniffers)
+Chrome extension designed to receive gpg encrypted pass trough the clipboard... (avoiding clipboard sniffers)
 
 
 -------------------------------
@@ -10,7 +10,6 @@ Chrome extension to receive gpg ecrypted pass trough the clipboard... (avoiding 
 * Load the extension to chrome
 * Go to settings to download installer
 * Run downloaded installer
-
 
 -------------------------------
 
@@ -26,13 +25,18 @@ Chrome extension to receive gpg ecrypted pass trough the clipboard... (avoiding 
 
         replace line 4 with the correct path of the script
 
+```
             "path": "/home/user/bin/clippass_extension_decrypt_clipboard.sh",
+```
+
 
         replace line 7 with your chrome extension id, (will have an id after imported to chrome)
 
+```
             "allowed_origins": [
-                "chrome-extension://ofbgbplogdelpcfnkjicleeieaapcefd/"
+                "chrome-extension://EXTENSION_ID/"
             ]
+```
 
 * Update the extension loaded
 

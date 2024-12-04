@@ -7,22 +7,74 @@
   <style>
     body {
       font-family: Arial, sans-serif;
+      background-color: #2e2e2e; /* Dark gray background */
+      color: #f2f2f2; /* Light color for text, easy on the eyes */
       margin: 20px;
+      line-height: 1.6;
     }
-    #status {
-      margin-bottom: 20px;
+    #explanation p {
+      font-size: 18px; /* Increased font size for readability */
+      margin-bottom: 15px;
+    }
+    ul {
+      margin-bottom: 15px;
     }
     button {
       padding: 10px 15px;
+      background-color: #444; /* Dark button background */
+      color: #f2f2f2; /* Matching font color */
+      border: none;
       cursor: pointer;
+      font-size: 16px;
+      border-radius: 4px;
+    }
+    button:hover {
+      background-color: #555; /* Slightly lighter on hover */
+    }
+    #status {
+      margin-top: 20px;
+      font-size: 16px;
     }
   </style>
 </head>
 <body>
   <h1>Clippass Settings</h1>
-  <div id="status">Checking native service...</div>
-  <button id="installButton" style="display: none;">Download and Install</button>
 
+  <div id="explanation">
+    <p>
+      Clippass is a Chrome extension designed to securely manage and decrypt passwords that have been encrypted using a PGP key.
+      The extension integrates with your operating system to perform the decryption process because the PGP key and related operations
+      are managed by your system and not the browser.
+    </p>
+    <p>
+      To enable this functionality, the extension requires a native system host that can securely interact with the clipboard and
+      decrypt the encrypted password. This native host facilitates communication between the browser and the system-level script
+      responsible for decryption.
+    </p>
+    <p>
+      To set up the native system host, you must download and run the installer provided below. This installer will:
+    </p>
+    <ul>
+      <li>Add a script to your system to decrypt passwords from the clipboard.</li>
+      <li>Register the native messaging host to allow communication between the extension and your system.</li>
+    </ul>
+    <p>
+      Once the native system host is installed, the extension will work seamlessly to decrypt passwords and input them securely
+      into the focused field on your browser.
+    </p>
+    <p>
+      <strong>USAGE:</strong> To use it: copy your encrypted password to the clipboard (see password-store [pass] -e option), then focus the text or password field , then click the extension icon and the password will be inserted in plaintext. Do not forget to touch your yubi key if you are using one.
+    <p>
+      Click the "Download" button then, its a bash script, then inspect it if you want, and run it in your terminal.
+    </p>
+    <p><strong>Note:</strong> The installation process requires running a script on your system. This is necessary for the
+    extension's functionality and is performed securely.</p>
+
+
+  </div>
+
+  <button id="installButton" style="display: inline-block;">Download</button>
+  <div id="status"></div>
   <script src="settings.js"></script>
 </body>
 </html>
