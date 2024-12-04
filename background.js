@@ -22,11 +22,31 @@ chrome.action.onClicked.addListener(async (tab) => {
             }
         });
         port.onDisconnect.addListener(() => {
-            console.log("Native messaging host disconnected.");
+            if (chrome.runtime.lastError) {
+                console.warn("Native messaging host exited:", chrome.runtime.lastError.message);
+            } else {
+                console.log("Native messaging host disconnected.");
+            }
         });
         port.postMessage({}); // Trigger the native host
     } catch (error) {
         console.error("Failed to connect to native messaging host:", error);
     }
 
+});
+
+// Add a context menu for settings
+chrome.runtime.onInstalled.addListener(() => {
+    chrome.contextMenus.create({
+        id: "openSettings",
+        title: "Open Clippass Settings",
+        contexts: ["action"]
+    });
+});
+
+// Handle the context menu click
+chrome.contextMenus.onClicked.addListener((info, tab) => {
+    if (info.menuItemId === "openSettings") {
+        chrome.runtime.openOptionsPage(); // Opens the settings page
+    }
 });

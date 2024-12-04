@@ -8,8 +8,8 @@ Chrome extension to receive gpg ecrypted pass trough the clipboard... (avoiding 
 ## Install
 
 * Load the extension to chrome
-* Set the extension id in install.sh
-* Run install.sh
+* Go to settings to download installer
+* Run downloaded installer
 
 
 -------------------------------
