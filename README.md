@@ -27,6 +27,11 @@ Does not collect or transmit data.
 Is necessary for the extension's functionality.
 Operates securely within your system to maintain the privacy of your private keys and passwords.
 
+## Usage
+
+    * Focus the password field, click the extension icon or use the shortcut (Control+Shitf+K), don't forget to press your yubikey if you use one.
+    * It wont work if your clipboard do not contains PGP encrypted data
+
 ## Contributing
 Contributions are welcome! If you'd like to enhance Clippass or report an issue, feel free to submit a pull request or open an issue in this repository.
 
