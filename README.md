@@ -23,14 +23,14 @@ To set up the native system host, follow these steps:
 ## Security Note
 The installation process requires running a system-level script to set up the native host. This script:
 
-Does not collect or transmit data.
-Is necessary for the extension's functionality.
-Operates securely within your system to maintain the privacy of your private keys and passwords.
+* Does not collect or transmit data.
+* Is necessary for the extension's functionality.
+* Operates securely within your system to maintain the privacy of your private keys and passwords.
 
 ## Usage
 
-    * Focus the password field, click the extension icon or use the shortcut (Control+Shitf+K), don't forget to press your yubikey if you use one.
-    * It wont work if your clipboard do not contains PGP encrypted data
+ * Focus the password field, click the extension icon or use the shortcut (Control+Shitf+K), don't forget to press your yubikey if you use one.
+ * It wont work if your clipboard do not contains PGP encrypted data
 
 ## Contributing
 Contributions are welcome! If you'd like to enhance Clippass or report an issue, feel free to submit a pull request or open an issue in this repository.
