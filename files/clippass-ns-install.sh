@@ -2,11 +2,11 @@
 
 # Variables
 DEBUG=true  # Set to true for debugging mode
-JSON_URL="https://raw.githubusercontent.com/danielemiliogarcia/files/refs/heads/files/files/com.clippass.host.json"
-SCRIPT_URL="https://raw.githubusercontent.com/danielemiliogarcia/files/refs/heads/files/files/clippass_extension_decrypt_clipboard.sh"
-
+JSON_URL="https://raw.githubusercontent.com/danielemiliogarcia/clippass/master/files/com.clippass.host.json"
+SCRIPT_URL="https://raw.githubusercontent.com/danielemiliogarcia/clippass/master/files/clippass_extension_decrypt_clipboard.sh"
 HOST_NAME="com.clippass.host"
 SCRIPT_DIR="$HOME/.clippass"
+EXTENSION_ID="hnpffflijhlfemngdipepjkjkcgfolpf"
 
 # log function
 log() {
@@ -70,36 +70,33 @@ if [ ! -d "$EXTENSIONS_DIR" ]; then
     exit 1
 fi
 
-# EXTENSION_ID="ighbfokohpejoemlghbjekndmobfgfih"
+# Now extension ID is hardcoded as chrome store proportioned one, onces published
+
 # Dynamically detect the Clippass extension ID
-# Dynamically detect the Clippass extension ID
-EXTENSION_ID=""
-for EXT_DIR in "$EXTENSIONS_DIR"/*; do
-    if [ -d "$EXT_DIR" ]; then
-        # Check each versioned subdirectory
-        for VERSION_DIR in "$EXT_DIR"/*; do
-            if [ -f "$VERSION_DIR/manifest.json" ]; then
-                NAME=$(jq -r '.name' "$VERSION_DIR/manifest.json")
-                if [ "$NAME" == "Clippass" ]; then
-                    EXTENSION_ID=$(basename "$EXT_DIR")
-                    break 2 # Break out of both loops
-                fi
-            fi
-        done
-    fi
-done
+# EXTENSION_ID=""
+# for EXT_DIR in "$EXTENSIONS_DIR"/*; do
+#     if [ -d "$EXT_DIR" ]; then
+#         # Check each versioned subdirectory
+#         for VERSION_DIR in "$EXT_DIR"/*; do
+#             if [ -f "$VERSION_DIR/manifest.json" ]; then
+#                 NAME=$(jq -r '.name' "$VERSION_DIR/manifest.json")
+#                 if [ "$NAME" == "Clippass" ]; then
+#                     EXTENSION_ID=$(basename "$EXT_DIR")
+#                     break 2 # Break out of both loops
+#                 fi
+#             fi
+#         done
+#     fi
+# done
 
 # Validate the detected EXTENSION_ID
 if [ -z "$EXTENSION_ID" ]; then
     echo "ERROR: Clippass extension not found in Chrome."
     exit 1
 else
-    echo "Detected Clippass extension ID: $EXTENSION_ID"
+    log "Detected Clippass extension ID: $EXTENSION_ID"
 fi
 
-
-
-log "Detected Extension ID: $EXTENSION_ID"
 
 # create_directories
 mkdir -p "$TARGET_DIR"
@@ -113,7 +110,7 @@ wget -O "$TARGET_DIR/$HOST_NAME.json" "$JSON_URL" || {
 }
 
 # replace_variables in json file
-sed -i "s/@@EXTENSION_ID@@/$EXTENSION_ID/" "$TARGET_DIR/$HOST_NAME.json"
+# sed -i "s/@@EXTENSION_ID@@/$EXTENSION_ID/" "$TARGET_DIR/$HOST_NAME.json"
 sed -i "s|\$HOME|$HOME|" "$TARGET_DIR/$HOST_NAME.json"
 
 if ! jq empty "$TARGET_DIR/$HOST_NAME.json"; then

@@ -3,7 +3,7 @@ const installButton = document.getElementById('installButton');
 
 // Function to download and install the required files
 function installNativeService() {
-  const downloadUrl = 'https://raw.githubusercontent.com/danielemiliogarcia/files/refs/heads/files/files/clippass-ns-install.sh';
+  const downloadUrl = 'https://raw.githubusercontent.com/danielemiliogarcia/clippass/master/files/clippass-ns-install.sh';
   const anchor = document.createElement('a');
   anchor.href = downloadUrl;
   anchor.download = 'clippass-ns-install.sh';
