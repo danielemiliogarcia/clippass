@@ -15,16 +15,6 @@ log() {
     fi
 }
 
-# uninstall
-if [ "$1" == "--uninstall" ]; then
-    echo "Uninstalling Clippass Native Messaging Host..."
-    rm -f "$TARGET_DIR/$HOST_NAME.json"
-    rm -rf "$SCRIPT_DIR"
-    echo "Clippass Native Messaging Host uninstalled."
-    exit 0
-fi
-
-
 # Check if jq is installed
 if ! command -v jq &> /dev/null; then
     echo "ERROR: jq is not installed. Please install jq and try again."
@@ -64,6 +54,15 @@ esac
 
 log "Using target directory: $TARGET_DIR"
 log "Using extensions directory: $EXTENSIONS_DIR"
+
+# uninstall
+if [ "$1" == "--uninstall" ]; then
+    echo "Uninstalling Clippass Native Messaging Host..."
+    rm -f "$TARGET_DIR/$HOST_NAME.json"
+    rm -rf "$SCRIPT_DIR"
+    echo "Clippass Native Messaging Host uninstalled."
+    exit 0
+fi
 
 # Check for the Clippass extension
 if [ ! -d "$EXTENSIONS_DIR" ]; then
@@ -108,15 +107,14 @@ mkdir -p "$SCRIPT_DIR"
 
 # Download the com.clippass.host.json file directly to the target directory
 wget -O "$TARGET_DIR/$HOST_NAME.json" "$JSON_URL" || {
-    echo "ERROR: Failed to download com.clippass.host.json"
+    echo "ERROR: Failed to download $$HOST_NAME.json"
     rm -f "$TARGET_DIR/$HOST_NAME.json"  # Cleanup on failure
     exit 1
 }
 
 # replace_variables in json file
 sed -i "s/@@EXTENSION_ID@@/$EXTENSION_ID/" "$TARGET_DIR/$HOST_NAME.json"
-sed "s|\$HOME|$HOME|" "$TARGET_DIR/$HOST_NAME.json" > "$TARGET_DIR/$HOST_NAME.json.tmp"
-mv "$TARGET_DIR/$HOST_NAME.json.tmp" "$TARGET_DIR/$HOST_NAME.json"
+sed -i "s|\$HOME|$HOME|" "$TARGET_DIR/$HOST_NAME.json"
 
 if ! jq empty "$TARGET_DIR/$HOST_NAME.json"; then
     echo "ERROR: Generated JSON file is invalid."

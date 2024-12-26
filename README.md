@@ -74,11 +74,13 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 
 
-## Limitations
-* The installer only works for the chrome default profile
+## Future Enhancements
+* Replace the dynamic EXTENSION_ID for the Fixed one by the chrome web store. Remove the code that auto replaces that
 
 
 ## Other stuff
+
+* To run this extension in multiple google chrome profiles, you will need to install the Native host scripts only once per system, and install the extension at every profile.
 
 * To run chrome in debug use
 
