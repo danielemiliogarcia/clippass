@@ -31,6 +31,14 @@ if ! command -v wget &> /dev/null; then
     exit 1
 fi
 
+# Check if jq is installed
+if ! command -v xclip &> /dev/null; then
+    echo "ERROR: xclip is not installed. Please install xclip and try again."
+    echo "On Debian/Ubuntu: sudo apt install xclip"
+    echo "On macOS: brew install xclip"
+    exit 1
+fi
+
 
 # Detect platform and set paths
 case "$(uname -s)" in

@@ -8,6 +8,11 @@ see https://salsa.debian.org/danielemiliogarcia/password-store/-/merge_requests/
 
 ## Setup
 
+### Dependencies
+* wget
+* jq
+* xclip
+
 1. Install the Extension
 Load Clippass as a Chrome extension.
 During development, load it as an unpacked extension via chrome://extensions/.
