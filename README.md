@@ -1,10 +1,9 @@
 # CLIPPASS
 
-Chrome extension designed to receive gpg encrypted pass trough the clipboard... (avoiding clipboard sniffers)
+[Chrome extension](https://chromewebstore.google.com/detail/clippass/hnpffflijhlfemngdipepjkjkcgfolpf) designed to receive gpg encrypted pass trough the clipboard... (avoiding clipboard sniffers)
 
-https://chromewebstore.google.com/detail/clippass/hnpffflijhlfemngdipepjkjkcgfolpf
 
-The main idea is to use this extension, with this password manager https://www.passwordstore.org/ using the -e feature added at https://salsa.debian.org/danielemiliogarcia/password-store/-/merge_requests/1
+The main idea is to use this extension, with this password manager https://www.passwordstore.org/ using the -e feature added at this [Merge Request](https://salsa.debian.org/danielemiliogarcia/password-store/-/merge_requests/1)
 
 
 ## Setup
@@ -16,15 +15,14 @@ The main idea is to use this extension, with this password manager https://www.p
 
 ### 1) Install the Extension
 
-Load Clippass as a Chrome extension.
-
-https://chromewebstore.google.com/detail/clippass/hnpffflijhlfemngdipepjkjkcgfolpf
+Install the [Chrome extension](https://chromewebstore.google.com/detail/clippass/hnpffflijhlfemngdipepjkjkcgfolpf).
 
 
 ### 2) Install the Native System Host
 To set up the native system host, follow these steps:
 
-    * Click the "Download" button in the Clippass settings page.
+    * Right click on extension button and click settings
+    * Click the "Download" button at the bottom of the Clippass settings page.
     * Run the downloaded installer (clippass-ns-install.sh) on your system. This installer will:
         - Add a script to decrypt passwords from your clipboard.
         - Register the native messaging host required for communication between Clippass and your system.
@@ -37,6 +35,8 @@ The installation process requires running a system-level script to set up the na
 * Operates securely within your system to maintain the privacy of your private keys and passwords.
 
 ## Usage
+see exmple usage [video](https://www.youtube.com/watch?v=kHnr-87B-f0)
+
 
  * Focus the password field, click the extension icon or use the shortcut (Control+Shitf+K), don't forget to press your yubikey if you use one.
  * It wont work if your clipboard do not contains PGP encrypted data
