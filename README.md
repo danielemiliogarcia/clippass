@@ -2,8 +2,9 @@
 
 Chrome extension designed to receive gpg encrypted pass trough the clipboard... (avoiding clipboard sniffers)
 
-The main idea is to use this extension, with this password manager https://www.passwordstore.org/ using the -e feature that i added
-see https://salsa.debian.org/danielemiliogarcia/password-store/-/merge_requests/1
+https://chromewebstore.google.com/detail/clippass/hnpffflijhlfemngdipepjkjkcgfolpf
+
+The main idea is to use this extension, with this password manager https://www.passwordstore.org/ using the -e feature added at https://salsa.debian.org/danielemiliogarcia/password-store/-/merge_requests/1
 
 
 ## Setup
@@ -13,14 +14,17 @@ see https://salsa.debian.org/danielemiliogarcia/password-store/-/merge_requests/
 * jq
 * xclip
 
-1. Install the Extension
-Load Clippass as a Chrome extension.
-During development, load it as an unpacked extension via chrome://extensions/.
+### 1) Install the Extension
 
-2. Install the Native System Host
+Load Clippass as a Chrome extension.
+
+https://chromewebstore.google.com/detail/clippass/hnpffflijhlfemngdipepjkjkcgfolpf
+
+
+### 2) Install the Native System Host
 To set up the native system host, follow these steps:
 
-    * Click the "Download and Install" button in the Clippass settings page.
+    * Click the "Download" button in the Clippass settings page.
     * Run the downloaded installer (clippass-ns-install.sh) on your system. This installer will:
         - Add a script to decrypt passwords from your clipboard.
         - Register the native messaging host required for communication between Clippass and your system.
@@ -80,7 +84,7 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 
 ## Future Enhancements
-* Replace the dynamic EXTENSION_ID for the Fixed one by the chrome web store. Remove the code that auto replaces that
+* Port to other browsers
 
 
 ## Other stuff
